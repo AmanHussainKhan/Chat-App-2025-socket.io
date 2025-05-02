@@ -1,5 +1,16 @@
 {
     "version": 2,
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
+    ],
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        ]
+      }
+    ],
     "builds": [
       {
         "src": "index.html",
@@ -8,8 +19,5 @@
     ],
     "routes": [
       { "src": "/.*", "dest": "/index.html" }
-    ],
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
     ]
   }
